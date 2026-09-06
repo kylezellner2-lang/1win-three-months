@@ -70,14 +70,14 @@
   .goal .cap b{color:var(--blue)}
 
   /* ---------- STAT TILES ---------- */
-  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);
     border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-top:40px}
   .stats .s{background:var(--panel);padding:22px 18px}
   .stats .s .v{font-family:var(--head);font-weight:800;font-size:clamp(1.25rem,3.4vw,1.85rem);
     line-height:1;letter-spacing:-.03em}
   .stats .s .v.b{color:var(--blue)}
   .stats .s .l{color:var(--muted);font-size:.7rem;margin-top:9px;letter-spacing:.11em;text-transform:uppercase}
-  @media(max-width:820px){.stats{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:560px){.stats{grid-template-columns:1fr}}
 
   /* ---------- SECTIONS ---------- */
   section{padding:76px 0;border-top:1px solid var(--line)}
@@ -111,13 +111,35 @@
   .flag .play svg{width:26px;height:26px;margin-left:3px}
   .flag .role{color:var(--muted);text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;margin:14px 0 4px}
   .flag .fv{font-family:var(--head);font-size:clamp(2rem,6vw,3rem);font-weight:800;letter-spacing:-.03em;line-height:1}
-  .flag .fl{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.11em;margin-top:4px}
+  .flag .fl{color:var(--muted);font-size:.72rem;text-transform:uppercase;letter-spacing:.11em;margin:4px 0 20px}
   .flag .blurb{color:#B9C3D6;margin:15px 0 18px;font-size:.95rem;max-width:54ch}
   @media(max-width:760px){.flag{grid-template-columns:1fr;justify-items:center;text-align:center;padding:20px 16px}
     .flag .cover{width:min(200px,60vw)}.flag .blurb{margin-left:auto;margin-right:auto}}
 
+  /* ---------- MONTH ROWS ---------- */
+  .months{margin-top:34px;display:flex;flex-direction:column;gap:11px}
+  details.month{border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+  details.month[open]{border-color:#2b3f60}
+  details.month>summary{list-style:none;cursor:pointer;padding:20px;min-height:56px;
+    display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+  details.month>summary::-webkit-details-marker{display:none}
+  details.month>summary:hover{background:#111116}
+  details.month .ml{font-family:var(--head);font-weight:700;font-size:1.1rem}
+  details.month .mv{margin-left:auto;font-family:var(--head);font-weight:800;
+    letter-spacing:-.03em;font-size:clamp(1.4rem,4.6vw,2rem);line-height:1}
+  details.month .chev{color:var(--blue);font-size:1.15rem;transition:transform .2s}
+  details.month[open]>summary .chev{transform:rotate(180deg)}
+  details.month>.inner{padding:2px 20px 24px;border-top:1px solid var(--line)}
+  .mmeta{color:var(--muted);font-size:.87rem;padding:16px 0 2px}
+  .mmeta b{color:#fff;font-weight:600}
+  @media(max-width:560px){
+    details.month>summary{padding:18px 16px}
+    details.month .chev{order:1;margin-left:auto}
+    details.month .mv{order:2;flex-basis:100%;margin-left:0;margin-top:4px}
+  }
+
   /* ---------- DETAIL DISCLOSURE ---------- */
-  details.all{margin-top:26px;border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
+  details.all{margin-top:22px;border:1px solid var(--line);border-radius:14px;background:var(--panel);overflow:hidden}
   details.all>summary{list-style:none;cursor:pointer;padding:0 20px;min-height:56px;
     display:flex;align-items:center;gap:12px;font-family:var(--head);font-weight:700;font-size:.95rem}
   details.all>summary::-webkit-details-marker{display:none}
@@ -172,11 +194,17 @@
     font-size:clamp(1.55rem,5.2vw,2.4rem);line-height:1}
   .askline .n.b{color:var(--blue)}
   .askline .t{color:var(--muted);font-size:.96rem;flex:1;min-width:200px}
+  @media(max-width:620px){
+    .ask .top{padding:26px 18px}
+    .ask .foot{padding:18px 18px}
+    .askline{gap:6px;padding:15px 0}
+    .askline .t{flex-basis:100%;min-width:0}
+  }
   .ask .foot{padding:21px 26px;border-top:1px solid #1d3f73;background:#08080A;color:var(--muted);font-size:.94rem}
   .ask .foot b{color:#fff;font-weight:600}
   .fee{display:flex;flex-wrap:wrap;align-items:baseline;gap:9px 15px;margin-top:7px}
   .fee .amt{font-family:var(--head);font-weight:700;font-size:1.12rem}
-  .fee .cmp{color:var(--muted2);font-size:.85rem}
+  .fee .cmp{color:var(--muted);font-size:.87rem}
 
   /* ---------- CHIPS ---------- */
   .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
@@ -205,10 +233,7 @@
   <span class="mark">1win</span><span class="x">× Kyle Zellner</span>
   <span class="links">
     <a class="navlink" href="#s1">Results</a>
-    <a class="navlink" href="#m1">Month One</a>
-    <a class="navlink" href="#m2">Month Two</a>
-    <a class="navlink" href="#m3">Month Three</a>
-    <a class="navlink" href="#s5">Referrals</a>
+    <a class="navlink" href="#s5">Where this goes</a>
     <a class="navlink keep" href="#s6">The ask</a>
     <a class="navlink" href="#s7">Terms</a>
   </span>
@@ -224,9 +249,7 @@
         <p class="sub" id="heroSub">—</p>
         <div class="cta" style="margin-top:26px"><a class="btn p" href="#s6">See the proposal &nbsp;→</a></div>
       </div>
-      <div class="shot" id="heroShot">
-        <div class="cap"><div class="n" id="heroShotN">—</div><div class="l">Biggest single post</div></div>
-      </div>
+      <div class="shot" id="heroShot"></div>
     </div>
 
     <div class="goal">
@@ -242,29 +265,25 @@
 <section id="s1"><div class="wrap reveal">
   <div class="sec-num">01 — The three months</div>
   <h2>What was contracted, and what was delivered.</h2>
-  <p class="lede" id="s1lede">—</p>
   <dl class="items" id="s1items"></dl>
+  <div class="months" id="monthRows"></div>
 </div></section>
 
-<!-- MONTHS render into here -->
-<div id="monthSections"></div>
-
-<!-- 05 — REFERRALS -->
+<!-- 02 — WHERE THIS GOES -->
 <section id="s5"><div class="wrap reveal">
-  <div class="sec-num">05 — Beyond the posts</div>
-  <h2>Two creators and an agency, brought in at no charge.</h2>
+  <div class="sec-num">02 — Where this goes</div>
+  <h2>I want to keep building this with 1win.</h2>
   <dl class="items">
-    <div class="item"><dt>Callie Rounds</dt><dd>@callierounds, 500,000 followers. I brought her to 1win, and she has been one of the strongest performers on the roster since — her numbers are in your own dashboard.</dd></div>
-    <div class="item"><dt>A second creator</dt><dd>Also introduced by me. Signed and posting.</dd></div>
-    <div class="item"><dt>Talent agency</dt><dd>Introduced to 1win. Represents adrenaline sports creators in the United States.<span class="note">A route into US audiences that does not depend on any one creator.</span></dd></div>
-    <div class="item"><dt>The pipeline</dt><dd>I am inside the global skydiving community. Sourcing, vetting and coordinating athletes for 1win is something I can keep doing.</dd></div>
+    <div class="item"><dt>Worldwide</dt><dd>I am on the road constantly and shoot where the content is. These three months were Brazil, Sweden, Turkey and Switzerland — helicopter exits and hot air balloon jumps.</dd></div>
+    <div class="item"><dt>Stunts</dt><dd>I can help build and coordinate them, not just film them — aircraft, crew, permits, safety and athletes.</dd></div>
+    <div class="item"><dt>Talent</dt><dd>Callie Rounds came to 1win through me, and so did Tribe Talents, one of the largest agencies in the United States focused on extreme sports. I am inside the global skydiving community and happy to keep bringing people in.</dd></div>
+    <div class="item"><dt>Why six months</dt><dd>Month to month made sense while this was a test. Six months lets me build around 1win — plan the travel, plan the stunts, and commit the calendar.</dd></div>
   </dl>
-  <p class="lede">None of this was contracted or invoiced.</p>
 </div></section>
 
 <!-- 06 — THE ASK -->
 <section id="s6"><div class="wrap reveal">
-  <div class="sec-num">06 — The ask</div>
+  <div class="sec-num">03 — The ask</div>
   <h2>Same rate. Longer clock. Bigger number.</h2>
   <div class="ask">
     <div class="top">
@@ -275,40 +294,37 @@
     </div>
     <div class="foot" id="askFoot">—</div>
   </div>
-  <p class="lede">A rate per thousand views does not care when the views land, only how many. Posts keep accruing views for months after they publish, and some months break out while others do not — the three above are the proof of that. Measuring the total instead of the month is the same maths on a longer clock.</p>
+  <p class="lede">Some months break out and some do not. Over six months, the total is what counts.</p>
 </div></section>
 
 <!-- 07 — TERMS -->
 <section id="s7"><div class="wrap reveal">
-  <div class="sec-num">07 — Terms</div>
-  <h2>Seven lines.</h2>
-  <p class="lede">Everything else — reporting, content rights, payment terms — stays exactly as it works today. A full term sheet is available whenever you want it.</p>
+  <div class="sec-num">04 — Terms</div>
+  <h2>The agreement.</h2>
   <dl class="items">
     <div class="item"><dt>Term</dt><dd id="tTerm">—</dd></div>
     <div class="item"><dt>Views</dt><dd id="tMeasure">—</dd></div>
     <div class="item"><dt>Posts</dt><dd>Minimum two feed posts a month. Trial variations run continuously on top, at no additional cost.</dd></div>
     <div class="item"><dt>If it falls short</dt><dd id="tTrue">—</dd></div>
+    <div class="item"><dt>If it's hit early</dt><dd>The posting commitment runs the full six months. 30,000,000 is a benchmark, not a finish line — reaching it early does not shorten the term or reduce the fee.</dd></div>
     <div class="item"><dt>Exclusivity</dt><dd>Online casino and sportsbook operators only, for the term.</dd></div>
-    <div class="item"><dt>Stunts</dt><dd>Helicopter, balloon, aircraft, permits and crew quoted per stunt, on top of the retainer.</dd></div>
+    <div class="item"><dt>Referrals</dt><dd>Unchanged from the current agreement — a one-time referral fee of 10% of a creator's monthly amount, for any creator who signs with 1win through me, directly or via Tribe Talents.</dd></div>
+    <div class="item"><dt>Stunts</dt><dd>Stunts and projects are excluded from this agreement. They sit outside the retainer and are quoted separately.</dd></div>
     <div class="item"><dt>Fee</dt><dd><div class="fee"><span class="amt" id="tFee">—</span><span class="cmp" id="tCmp">—</span></div></dd></div>
   </dl>
 </div></section>
 
 <!-- 08 — ME -->
 <section id="s8"><div class="wrap reveal">
-  <div class="sec-num">08 — The creator</div>
+  <div class="sec-num">05 — The creator</div>
   <h2>Kyle Zellner</h2>
   <div class="me">
     <img src="photos/kyle.jpg" alt="Kyle Zellner">
     <div class="lines">
-      <p id="meFollow">—</p>
-      <p><b>Helicopter jumps and hot air balloon jumps, shot self-contained in freefall.</b> FAA licensed skydiver, BASE certification in progress. Filmed in Brazil, Sweden, Turkey and Switzerland across these three months.</p>
-      <p id="meOps">—</p>
-      <div class="chips" id="meChips"></div>
       <div class="cta">
         <a class="btn p" href="mailto:kylezellner2@gmail.com">kylezellner2@gmail.com</a>
         <a class="btn" href="https://www.instagram.com/kyle.zellner/" target="_blank" rel="noopener">Instagram</a>
-        <a class="btn" href="https://www.facebook.com/profile.php?id=61573760518474" target="_blank" rel="noopener">Facebook</a>
+        <a class="btn" href="https://www.facebook.com/people/Kylezellner/61590668937779/" target="_blank" rel="noopener">Facebook</a>
       </div>
     </div>
   </div>
@@ -316,7 +332,6 @@
 
 <footer><div class="wrap">
   <div class="mk">1win</div>
-  <div id="footLine">Prepared for 1win · Kyle Zellner</div>
 </div></footer>
 
 <script>
@@ -345,15 +360,15 @@ const DATA = {
       "label": "Month One",
       "inProgress": false,
       "goal": 2000000,
-      "views": 11006652,
+      "views": 14872179,
       "posts": 46,
-      "feedViews": 4866982,
+      "feedViews": 6028475,
       "feedPosts": 3,
       "trialPosts": 43,
-      "best": 2467545,
-      "over1m": 4,
-      "over100k": 15,
-      "pct": 550,
+      "best": 2936991,
+      "over1m": 6,
+      "over100k": 18,
+      "pct": 744,
       "groups": [
         {
           "name": "Campaign 1",
@@ -361,37 +376,41 @@ const DATA = {
           "collabs": [
             {
               "url": "https://www.instagram.com/reel/Dai-UiZhkyc/",
-              "views": 1431873,
+              "views": 1769950,
               "img": "img/cover-Dai-UiZhkyc.jpg",
               "badge": "★ Selected Collab",
               "role": "Official Collaboration",
-              "blurb": "The top-performing edit from the Campaign 1 slate. Selected as the official 1win collab and pushed to 1.43M views on the feed."
+              "blurb": "The top-performing edit from the Campaign 1 slate. Selected as the official 1win collab and pushed to 1.77M views across Instagram and Facebook."
             }
           ],
           "videos": [
             [
               "https://www.instagram.com/reel/DakTcrqsBMA/",
-              1398887
+              1415141
             ],
             [
               "https://www.instagram.com/reel/Dajg46YseRH/",
-              610260
-            ],
-            [
-              "https://www.instagram.com/reel/DajirwAsCNp/",
-              231301
-            ],
-            [
-              "https://www.instagram.com/reel/DajR9ksM9MZ/",
-              182520
-            ],
-            [
-              "https://www.instagram.com/reel/DajkaAXM8iI/",
-              134650
+              819516
             ],
             [
               "https://www.instagram.com/reel/Dai_NlphFLc/",
-              35978
+              237975
+            ],
+            [
+              "https://www.instagram.com/reel/DajirwAsCNp/",
+              231340
+            ],
+            [
+              "https://www.instagram.com/reel/DajR9ksM9MZ/",
+              182521
+            ],
+            [
+              "https://www.instagram.com/reel/DajkaAXM8iI/",
+              145857
+            ],
+            [
+              "https://www.instagram.com/reel/DarELsnMQac/",
+              99284
             ],
             [
               "https://www.instagram.com/reel/DajagTbMLbF/",
@@ -402,16 +421,12 @@ const DATA = {
               7261
             ],
             [
-              "https://www.instagram.com/reel/DarELsnMQac/",
-              6651
-            ],
-            [
               "https://www.instagram.com/reel/DajhXFasU81/",
               4963
             ],
             [
               "https://www.instagram.com/reel/DajAjM2hFyh/",
-              3851
+              3853
             ],
             [
               "https://www.instagram.com/reel/Dai9YGUBOuU/",
@@ -430,7 +445,7 @@ const DATA = {
               1639
             ]
           ],
-          "total": 4076217,
+          "total": 4945683,
           "count": 16
         },
         {
@@ -439,41 +454,41 @@ const DATA = {
           "collabs": [
             {
               "url": "https://www.instagram.com/reel/DZ2hzX7sHcK/",
-              "views": 967564,
+              "views": 1321534,
               "img": "img/poster2.jpg",
               "badge": "★ Selected Collab",
               "role": "Official Collaboration",
-              "blurb": "The breadwinner from the Campaign 2 slate. Elevated to the official 1win collab, clearing 968K views."
+              "blurb": "The breadwinner from the Campaign 2 slate. Elevated to the official 1win collab, clearing 1.32M views across Instagram and Facebook."
             }
           ],
           "videos": [
             [
               "https://www.instagram.com/reel/DZ2TYtSMA7m/",
-              1076841
+              1358055
             ],
             [
               "https://www.instagram.com/reel/DZ5Tm6XMO6P/",
-              748709
+              748777
             ],
             [
               "https://www.instagram.com/reel/DZ2g6N4sOvQ/",
-              263319
+              263414
             ],
             [
               "https://www.instagram.com/reel/DZ5MhOdM7M5/",
-              207714
+              207721
             ],
             [
               "https://www.instagram.com/reel/DZ3JeBAhUWe/",
-              175210
+              175283
             ],
             [
               "https://www.instagram.com/reel/DZ2ac8jsqDk/",
-              133215
+              133259
             ],
             [
               "https://www.instagram.com/reel/DZ5M1MasH4y/",
-              44479
+              44480
             ],
             [
               "https://www.instagram.com/reel/DZ2Z06NsS-k/",
@@ -500,7 +515,7 @@ const DATA = {
               6364
             ]
           ],
-          "total": 3714428,
+          "total": 4349900,
           "count": 14
         },
         {
@@ -509,20 +524,20 @@ const DATA = {
           "collabs": [
             {
               "url": "https://www.instagram.com/reel/DabGH8IsHBu/",
-              "views": 2467545,
+              "views": 2936991,
               "img": "img/cover-DabGH8IsHBu.jpg",
               "badge": "★ Tagged Feed Post",
               "role": "Tagged Feed Post",
-              "blurb": "The tagged feed post from the July 7 slate — 2.47M views, the single biggest piece of Month One."
+              "blurb": "The tagged feed post from the July 7 slate — 2.94M views across Instagram and Facebook, the single biggest piece of Month One."
             }
           ],
           "videos": [
             [
               "https://www.instagram.com/reel/Dabt_t9M1Av/",
-              44109
+              1674806
             ]
           ],
-          "total": 2511654,
+          "total": 4611797,
           "count": 2
         },
         {
@@ -532,11 +547,19 @@ const DATA = {
           "videos": [
             [
               "https://www.instagram.com/reel/Dacz455sbi7/",
-              629975
+              632662
+            ],
+            [
+              "https://www.instagram.com/reel/Dac0_FqMCeB/",
+              75692
             ],
             [
               "https://www.instagram.com/reel/DaczD5ts8NQ/",
-              26179
+              38454
+            ],
+            [
+              "https://www.instagram.com/reel/Dabta9JsmAm/",
+              17418
             ],
             [
               "https://www.instagram.com/reel/Dac8tRzMI5O/",
@@ -565,17 +588,9 @@ const DATA = {
             [
               "https://www.instagram.com/reel/DadNNGxMfgS/",
               1871
-            ],
-            [
-              "https://www.instagram.com/reel/Dabta9JsmAm/",
-              1678
-            ],
-            [
-              "https://www.instagram.com/reel/Dac0_FqMCeB/",
-              1523
             ]
           ],
-          "total": 686969,
+          "total": 791840,
           "count": 11
         },
         {
@@ -584,19 +599,19 @@ const DATA = {
           "collabs": [],
           "videos": [
             [
+              "https://www.instagram.com/reel/DaODfZTsK0G/",
+              159249
+            ],
+            [
               "https://www.instagram.com/reel/DaF9vG0Mc2E/",
               8403
             ],
             [
               "https://www.instagram.com/reel/DaF18o0M9nv/",
               5307
-            ],
-            [
-              "https://www.instagram.com/reel/DaODfZTsK0G/",
-              3674
             ]
           ],
-          "total": 17384,
+          "total": 172959,
           "count": 3
         }
       ]
@@ -606,15 +621,15 @@ const DATA = {
       "label": "Month Two",
       "inProgress": false,
       "goal": 2000000,
-      "views": 28069836,
+      "views": 29167573,
       "posts": 25,
-      "feedViews": 23139841,
+      "feedViews": 24169124,
       "feedPosts": 4,
       "trialPosts": 21,
-      "best": 19678166,
+      "best": 20676076,
       "over1m": 5,
-      "over100k": 12,
-      "pct": 1403,
+      "over100k": 13,
+      "pct": 1458,
       "groups": [
         {
           "name": "Campaign 1",
@@ -622,40 +637,40 @@ const DATA = {
           "collabs": [
             {
               "url": "https://www.instagram.com/reel/DbvX_Z9s70L/",
-              "views": 576141,
+              "views": 590429,
               "img": "img/cover-DbvX_Z9s70L.jpg",
               "badge": "★ Tagged Feed Post",
               "role": "Tagged Feed Post",
-              "blurb": "The tagged feed post anchoring the Campaign 1 slate, carrying 576K views on the main feed."
+              "blurb": "The tagged feed post anchoring the Campaign 1 slate, carrying 590K views on the main feed."
             }
           ],
           "videos": [
             [
               "https://www.instagram.com/reel/DbvY-WxMoA3/",
-              92314
+              108441
             ],
             [
               "https://www.instagram.com/reel/Db0eqzxsC38/",
-              83091
+              83158
             ],
             [
               "https://www.instagram.com/reel/DbmxmInMvQH/",
-              51125
+              52519
             ],
             [
               "https://www.instagram.com/reel/Dbvs3k5MyUV/",
-              19794
+              19810
             ],
             [
               "https://www.instagram.com/reel/DbvtbOasukp/",
-              4892
+              4901
             ],
             [
               "https://www.instagram.com/reel/Dbvt0QDstf6/",
-              1670
+              1673
             ]
           ],
-          "total": 829027,
+          "total": 860931,
           "count": 7
         },
         {
@@ -664,15 +679,15 @@ const DATA = {
           "collabs": [
             {
               "url": "https://www.instagram.com/reel/Db6Mmzqs8mP/",
-              "views": 19678166,
+              "views": 20676076,
               "img": "img/cover-Db6Mmzqs8mP.jpg",
               "badge": "★ Tagged Feed Post",
               "role": "Tagged Feed Post",
-              "blurb": "The breakout post of the month — 19.7M views from a single tagged feed post, and the single biggest piece of the slate."
+              "blurb": "The breakout post of the month — 20.7M views from a single tagged feed post, and the single biggest piece of the slate."
             },
             {
               "url": "https://www.instagram.com/reel/Da8bLg3O2U2/",
-              "views": 1600461,
+              "views": 1607550,
               "img": "img/cover-Da8bLg3O2U2.jpg",
               "badge": "★ Tagged Feed Post",
               "role": "Tagged Feed Post",
@@ -682,26 +697,26 @@ const DATA = {
           "videos": [
             [
               "https://www.instagram.com/reel/DaydLDEsPfg/",
-              1972361
+              2007969
             ],
             [
               "https://www.instagram.com/reel/DaycnQHsRXQ/",
-              1017991
+              1026031
             ],
             [
               "https://www.instagram.com/reel/Daybe7eMNkz/",
-              348172
+              348436
             ],
             [
               "https://www.instagram.com/reel/Da8c_MCxrgw/",
-              148801
+              149213
             ],
             [
               "https://www.instagram.com/reel/Db66OhOs5fw/",
-              6668
+              6673
             ]
           ],
-          "total": 24772620,
+          "total": 25821948,
           "count": 7
         },
         {
@@ -710,32 +725,32 @@ const DATA = {
           "collabs": [
             {
               "url": "https://www.instagram.com/reel/DbLzbT_MHXU/",
-              "views": 1285073,
+              "views": 1295069,
               "img": "img/cover-DbLzbT_MHXU-v2.jpg",
               "badge": "★ Selected Collab",
               "role": "Official Collaboration",
-              "blurb": "The official 1win collab post for Campaign 3, now cleared 1.29M views on the feed."
+              "blurb": "The official 1win collab post for Campaign 3, now cleared 1.3M views on the feed."
             }
           ],
           "videos": [
             [
               "https://www.instagram.com/reel/DbLyoI4M5Kj/",
-              300946
+              302015
             ],
             [
               "https://www.instagram.com/reel/DbQWZtSsn9e/",
-              15702
+              16227
             ],
             [
               "https://www.instagram.com/reel/DbONHzNMUtH/",
-              12673
+              12720
             ],
             [
               "https://www.instagram.com/reel/DbQzNDtsDCY/",
-              10168
+              10189
             ]
           ],
-          "total": 1624562,
+          "total": 1636220,
           "count": 5
         },
         {
@@ -745,30 +760,30 @@ const DATA = {
           "videos": [
             [
               "https://www.instagram.com/reel/DbvaetJsnpl/",
-              331145
+              332030
             ],
             [
               "https://www.instagram.com/reel/DbjHvT9soHh/",
-              282274
+              282480
             ],
             [
               "https://www.instagram.com/reel/Db0d2bzs6tO/",
-              101189
+              101387
             ],
             [
               "https://www.instagram.com/reel/Db0dnRsszBl/",
-              91399
+              91781
             ],
             [
               "https://www.instagram.com/reel/DbgUvywMnDj/",
-              26920
+              30095
             ],
             [
               "https://www.instagram.com/reel/DbjItuQvtFB/",
-              10700
+              10701
             ]
           ],
-          "total": 843627,
+          "total": 848474,
           "count": 6
         }
       ]
@@ -778,15 +793,15 @@ const DATA = {
       "label": "Month Three",
       "inProgress": true,
       "goal": 2000000,
-      "views": 2053300,
+      "views": 2835104,
       "posts": 26,
-      "feedViews": 278000,
+      "feedViews": 280247,
       "feedPosts": 1,
       "trialPosts": 25,
-      "best": 444000,
+      "best": 786574,
       "over1m": 0,
-      "over100k": 6,
-      "pct": 103,
+      "over100k": 7,
+      "pct": 142,
       "groups": [
         {
           "name": "Campaign 1",
@@ -794,32 +809,32 @@ const DATA = {
           "collabs": [
             {
               "url": "https://www.instagram.com/reel/DcoCUR-oY51/",
-              "views": 278000,
+              "views": 280247,
               "img": "img/cover-DcoCUR-oY51.jpg",
               "badge": "★ Tagged Feed Post",
               "role": "Tagged Feed Post",
-              "blurb": "The tagged feed post anchoring Campaign 1, carrying 278K views on the main feed."
+              "blurb": "The tagged feed post anchoring Campaign 1, carrying 280K views on the main feed."
             }
           ],
           "videos": [
             [
               "https://www.instagram.com/reel/Dcbg0OEI5_d/",
-              124000
+              125016
             ],
             [
               "https://www.instagram.com/reel/DctD6a8oiyn/",
-              20500
+              20555
             ],
             [
               "https://www.instagram.com/reel/DctEv4Vod7a/",
-              16500
+              16765
             ],
             [
               "https://www.instagram.com/reel/DctDbMhozir/",
-              12500
+              12446
             ]
           ],
-          "total": 451500,
+          "total": 455029,
           "count": 5
         },
         {
@@ -829,34 +844,34 @@ const DATA = {
           "videos": [
             [
               "https://www.instagram.com/reel/Dc52eWtovFw/",
-              444000
+              786574
             ],
             [
               "https://www.instagram.com/reel/Dc5vzTCoxxG/",
-              307000
+              663213
             ],
             [
               "https://www.instagram.com/reel/Dc5qLIVIqiL/",
-              54000
+              115320
             ],
             [
               "https://www.instagram.com/reel/Dc6DN4XM_xo/",
-              18000
+              27597
             ],
             [
               "https://www.instagram.com/reel/Dc3fwaHoDyf/",
-              15000
-            ],
-            [
-              "https://www.instagram.com/reel/Dc5ujVIoS0l/",
-              12000
+              16528
             ],
             [
               "https://www.instagram.com/reel/Dc56xhuI4qa/",
-              9000
+              12984
+            ],
+            [
+              "https://www.instagram.com/reel/Dc5ujVIoS0l/",
+              12735
             ]
           ],
-          "total": 859000,
+          "total": 1634951,
           "count": 7
         },
         {
@@ -866,34 +881,34 @@ const DATA = {
           "videos": [
             [
               "https://www.instagram.com/reel/Dc03s-as_Nj/",
-              96000
+              96297
             ],
             [
               "https://www.instagram.com/reel/Dc04M3bMytC/",
-              27000
+              28943
             ],
             [
               "https://www.instagram.com/reel/Dc0ytlUorYh/",
-              9000
+              9205
             ],
             [
               "https://www.instagram.com/reel/Dc09Xa9MWdg/",
-              9000
+              9193
             ],
             [
               "https://www.instagram.com/reel/Dc08RPvsohC/",
-              3300
+              3721
             ],
             [
               "https://www.instagram.com/reel/Dc05U1jsAZU/",
-              3000
+              2664
             ],
             [
               "https://www.instagram.com/reel/Dc057gTsMVN/",
-              2500
+              2521
             ]
           ],
-          "total": 149800,
+          "total": 152544,
           "count": 7
         },
         {
@@ -903,30 +918,30 @@ const DATA = {
           "videos": [
             [
               "https://www.instagram.com/reel/Dcl3i6VonZs/",
-              171000
+              171535
             ],
             [
               "https://www.instagram.com/reel/DchFX4Zou-X/",
-              98000
+              97972
             ],
             [
               "https://www.instagram.com/reel/DcnktVHoHRA/",
-              22000
+              21413
             ],
             [
               "https://www.instagram.com/reel/DchFCJ8oj9O/",
-              20000
+              19910
             ],
             [
               "https://www.instagram.com/reel/Dcl3CQ0IlIv/",
-              18000
+              17499
             ],
             [
               "https://www.instagram.com/reel/Dcl1P6WIz2z/",
-              2000
+              1750
             ]
           ],
-          "total": 331000,
+          "total": 330079,
           "count": 6
         },
         {
@@ -936,30 +951,30 @@ const DATA = {
           "videos": [
             [
               "https://www.instagram.com/reel/DcnhbLoI8XO/",
-              262000
+              262501
             ]
           ],
-          "total": 262000,
+          "total": 262501,
           "count": 1
         }
       ]
     }
   ],
-  "total": 41129788,
+  "total": 46874856,
   "posts": 97,
   "feedPosts": 8,
-  "feedViews": 28284823,
+  "feedViews": 30477846,
   "contracted": 6000000,
   "campaigns": 14,
-  "over1m": 9,
-  "over100k": 33,
-  "best": 19678166,
+  "over1m": 11,
+  "over100k": 38,
+  "best": 20676076,
   "trialPosts": 89,
-  "multiple": 6.9,
+  "multiple": 7.8,
   "paid": 30000,
   "contractedCpm": 5,
-  "deliveredCpm": 0.73,
-  "perMonth": 13709929,
+  "deliveredCpm": 0.64,
+  "perMonth": 15624952,
   "startFollowers": 62000,
   "nowInstagram": 165000,
   "nowFacebook": 190000
@@ -974,17 +989,14 @@ const compact = x => x >= 1e6 ? +(x / 1e6).toFixed(x >= 1e7 ? 1 : 2) + "M"
 const set = (id, html) => { const el = document.getElementById(id); if (el) el.innerHTML = html; };
 const ig = () => '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>';
 
-/* cover of the single biggest post, for the hero */
-let heroCover = null;
-for (const m of DATA.months) for (const g of m.groups) for (const c of g.collabs)
-  if (c.views === DATA.best && c.img) heroCover = c.img;
+/* Hero image — change this one line to swap it.
+   Currently the Month One Campaign 1 flagship: on the helicopter skid at sunset. */
+const heroCover = "img/cover-Dai-UiZhkyc.jpg";
 
 /* ------------------------------------------------------------------- hero */
 set("heroViews", n(DATA.total));
 set("heroSub", `Contracted for ${n(DATA.contracted)} across the three months. `
-             + `Delivered ${DATA.multiple}× that, across ${DATA.posts} posts. `
-             + `A proposal for the next ${ASK.termMonths} months.`);
-set("heroShotN", n(DATA.best));
+             + `Delivered ${DATA.multiple}× that. A proposal for the next ${ASK.termMonths} months.`);
 if (heroCover) document.getElementById("heroShot").style.backgroundImage = `url('${heroCover}')`;
 
 set("goalRight", `<b>${Math.round(DATA.total / DATA.contracted * 100)}%</b> of the ${compact(DATA.contracted)} contracted`);
@@ -992,8 +1004,6 @@ document.getElementById("goalMark").style.left = (DATA.contracted / DATA.total *
 setTimeout(() => { document.getElementById("goalFill").style.width = "100%"; }, 250);
 
 [["b", n(DATA.total), "Views delivered"],
- ["",  DATA.posts,     "Posts"],
- ["",  DATA.campaigns, "Campaigns"],
  ["b", DATA.multiple + "×", "Of contracted volume"]
 ].forEach(([cls, v, l]) => {
   const d = document.createElement("div"); d.className = "s";
@@ -1002,39 +1012,27 @@ setTimeout(() => { document.getElementById("goalFill").style.width = "100%"; }, 
 });
 
 /* ------------------------------------------------------------- 01 results */
-set("s1lede", `The three monthly reports you already receive, in one place. Every post below is linked, `
-            + `so every number is checkable.`);
 
 [["Contracted", `${n(DATA.contracted)} views across the three months.`],
  ["Delivered",  `<b>${n(DATA.total)} views.</b> ${DATA.multiple}× the contracted volume.`],
- ["How",        `${DATA.posts} posts across ${DATA.campaigns} campaigns — ${DATA.feedPosts} to the main feed, `
-              + `${DATA.trialPosts} as trial variations at no extra cost.`]
+ ["Audience",   `<b>${n(DATA.startFollowers)} followers when this started. ${n(DATA.nowInstagram + DATA.nowFacebook)} today.</b> ${n(DATA.nowInstagram)} on Instagram, ${n(DATA.nowFacebook)} on Facebook — a channel that did not exist at the start.`]
 ].forEach(([k, v]) => {
   const d = document.createElement("div"); d.className = "item";
   d.innerHTML = `<dt>${k}</dt><dd>${v}</dd>`;
   document.getElementById("s1items").appendChild(d);
 });
 
-/* ------------------------------------------------- 02/03/04 — the months */
-const host = document.getElementById("monthSections");
-DATA.months.forEach((m, idx) => {
-  const sec = document.createElement("section");
-  sec.id = m.key;
-  const w = document.createElement("div");
-  w.className = "wrap reveal";
+/* ---------------------------------------------- the three months, collapsed */
+/* Level 0: one row per month, total views only.
+   Level 1 (open it): the feed posts.
+   Level 2 (open that): every trial variation.                                */
+let monthsHTML = "";
+DATA.months.forEach(m => {
+  let inner = `<div class="mmeta"><b>${m.posts}</b> posts · <b>${m.feedPosts}</b> to the main feed `
+            + `· <b>${m.pct}%</b> of the ${compact(m.goal)} target</div>`;
 
-  let html = `<div class="sec-num">0${idx + 2} — ${m.label}</div>
-    <h2>${m.label}${m.inProgress ? " <span class='badge'>Still running</span>" : ""}</h2>
-    <div class="mhead">
-      <div><div class="big">${n(m.views)}</div><div class="side">views delivered</div></div>
-      <div class="side"><b>${m.posts}</b> posts · <b>${m.feedPosts}</b> to the feed · <b>${m.trialPosts}</b> trials</div>
-      <div class="side"><b>${m.pct}%</b> of the ${compact(m.goal)} target</div>
-      <div class="side">Biggest post <b>${compact(m.best)}</b></div>
-    </div>`;
-
-  /* flagships first, exactly as the monthly reports present them */
   for (const g of m.groups) for (const c of g.collabs) {
-    html += `<div class="flag">
+    inner += `<div class="flag">
       <a class="cover" href="${c.url}" target="_blank" rel="noopener"
          style="background-image:url('${c.img || ""}')" aria-label="Watch reel">
         <span class="play"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></span>
@@ -1044,51 +1042,53 @@ DATA.months.forEach((m, idx) => {
         <div class="role">${g.name} · ${c.role}</div>
         <div class="fv">${n(c.views)}</div>
         <div class="fl">Views</div>
-        <p class="blurb">${c.blurb}</p>
         <a class="btn p" href="${c.url}" target="_blank" rel="noopener">${ig()} Watch the post</a>
       </div>
     </div>`;
   }
 
-  /* then every supporting post, grouped by campaign — folded away by default so the
-     page reads short, but one click from being fully itemised */
-  html += `<details class="all"><summary>Every post from ${m.label}
-             <span class="c">${m.posts} posts, itemised</span><span class="chev">⌄</span></summary>
-           <div class="inner">`;
+  let camps = "";
   for (const g of m.groups) {
     if (!g.videos.length) continue;
-    html += `<div class="camp">
+    camps += `<div class="camp">
       <div class="camp-note">
         <span class="t">${g.name}${g.collabs.length ? " — trial variations" : ""}</span>
         <span class="m">${g.collabs.length
-            ? `${g.collabs.length > 1 ? g.collabs.length + " flagships" : "Flagship"} + <b>${g.videos.length}</b> trial variation${g.videos.length === 1 ? "" : "s"} · <b>${compact(g.total)}</b> total`
+            ? `<b>${g.videos.length}</b> trial variation${g.videos.length === 1 ? "" : "s"} · <b>${compact(g.total)}</b> total`
             : `<b>${g.videos.length}</b> post${g.videos.length === 1 ? "" : "s"} · <b>${compact(g.total)}</b> views`}</span>
         ${g.note ? `<span class="note">${g.note}</span>` : ""}
       </div>
       <div class="grid">`;
     g.videos.forEach(([url, v], i) => {
-      html += `<div class="card${v >= 1e5 ? " top" : ""}">
+      camps += `<div class="card${v >= 1e5 ? " top" : ""}">
         <span class="rank">#${i + 1}</span>
         <div><div class="cv">${compact(v)}</div><div class="cl">views</div></div>
         <a class="btn" href="${url}" target="_blank" rel="noopener">${ig()} Watch</a>
       </div>`;
     });
-    html += `</div></div>`;
+    camps += `</div></div>`;
   }
-  html += `</div></details>`;
 
-  w.innerHTML = html;
-  sec.appendChild(w);
-  host.appendChild(sec);
+  inner += `<details class="all"><summary>Every post
+              <span class="c">${m.posts} posts, itemised</span><span class="chev">⌄</span></summary>
+            <div class="inner">${camps}</div></details>`;
+
+  monthsHTML += `<details class="month"><summary>
+      <span class="ml">${m.label}</span>
+      ${m.inProgress ? `<span class="badge">Still running</span>` : ""}
+      <span class="mv">${n(m.views)}</span><span class="chev">⌄</span>
+    </summary><div class="inner">${inner}</div></details>`;
 });
+document.getElementById("monthRows").innerHTML = monthsHTML;
 
 /* ------------------------------------------------------------- 06 the ask */
 set("askTerm", ASK.termMonths);
 set("askMonthly", n(ASK.viewsPerMonth));
 set("askCum", n(ASK.cumulative));
 set("askFoot",
-  `<b>If it falls short, I keep producing at no additional cost until ${n(ASK.cumulative)} is reached.</b> `
-+ `The three months above delivered ${n(DATA.total)} — more than the whole ${ASK.termMonths}-month target, in half the time.`);
+  `<b>Miss the number and 1win gets up to ${ASK.trueUpCapMonths} extra months of posting at no cost. `
++ `Hit it early and the posting runs the full term anyway.</b> `
++ `Either way 1win ends up with more than it paid for.`);
 
 /* --------------------------------------------------------------- 07 terms */
 set("tTerm", `${ASK.termMonths} months, paid monthly for the full term.`);
@@ -1105,18 +1105,7 @@ set("tChannels", `Instagram (${n(DATA.nowInstagram)}) and Facebook (${n(DATA.now
                + `The Facebook channel grew from zero during this partnership and carries the content at no additional cost.`);
 
 /* ------------------------------------------------------------------ 08 me */
-set("meFollow", `<b>${n(DATA.nowInstagram + DATA.nowFacebook)} followers.</b> ${n(DATA.nowInstagram)} on Instagram, `
-              + `${n(DATA.nowFacebook)} on Facebook. When this partnership started it was `
-              + `${n(DATA.startFollowers)}, on Instagram alone.`);
-set("meOps", `<b>One operator.</b> I shoot it, jump it and edit it — ${DATA.posts} posts in three months, `
-           + `across ${DATA.campaigns} campaigns, with no month below target.`);
-set("meChips",
-   `<span class="chip"><b>${n(DATA.total)}</b>&nbsp;views delivered</span>`
- + `<span class="chip"><b>${DATA.over1m}</b>&nbsp;posts over 1M</span>`
- + `<span class="chip"><b>${DATA.over100k}</b>&nbsp;posts over 100K</span>`
- + `<span class="chip"><b>${(DATA.nowInstagram / DATA.startFollowers).toFixed(1)}×</b>&nbsp;Instagram growth since we started</span>`);
 
-set("footLine", `Prepared for 1win · Kyle Zellner · figures current to ${DATA.generated} · Month Three still in progress`);
 
 /* -------------------------------------------------------- reveal + nav --- */
 const io = new IntersectionObserver(es => {
