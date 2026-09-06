@@ -1,0 +1,3 @@
+# Internal working docs stay local — never publish the negotiation brief or term sheet.
+*.md
+.DS_Store
